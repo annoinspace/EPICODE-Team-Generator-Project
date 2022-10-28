@@ -53,6 +53,7 @@ function createTeamLayout() {
   for (let i = 0; i < splitTeamArray.length; i++) {
     let card = document.createElement("div")
     card.classList.add = "team-member-container flex column"
+
     teamOutput.appendChild(card)
   }
 }
