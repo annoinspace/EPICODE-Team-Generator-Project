@@ -69,13 +69,22 @@ const teamOutputSection = document.getElementById("output-section")
 
 function createTeamCard() {
   let newCard = document.createElement("div")
-  newCard.classList.add = "team-member-container flex column border-shadow"
-  newCard.classList.add = "border-shadow"
+  newCard.classList.add(
+    "team-member-container",
+    "flex",
+    "column",
+    "border-shadow"
+  )
+  newCard.classList.add("border-shadow")
   newCard.innerHTML = "just checking"
+  let newHeader = document.createElement("h3")
+  newHeader.innerText = "Team"
+  newHeader.classList.add("team-header", "flex")
   let newDiv = document.createElement("div")
-  newDiv.classList.add = "team-container"
-  teamOutputSection.appendChild(newDiv)
+  newDiv.classList.add("team-container")
+  newDiv.appendChild(newHeader)
   newDiv.appendChild(newCard)
+  teamOutputSection.appendChild(newDiv)
 }
 
 function removeTeamCard() {
