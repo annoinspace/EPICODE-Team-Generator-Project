@@ -3,7 +3,7 @@ const newNameInput = document.getElementById("name-input-box")
 const allNamesContainer = document.getElementById("member-name-box")
 const resetButton = document.getElementById("reset-btn")
 const assignMemberButton = document.getElementById("assign-member-btn")
-const teamOutput = document.getElementById("output-section")
+
 const numberOfTeamsElement = document.getElementById("number-of-teams-display")
 const addTeamButton = document.getElementById("plus-one")
 const removeTeamButton = document.getElementById("minus-one")
@@ -46,24 +46,48 @@ let splitTeams = function (arr, teamSize) {
   }
   return splitTeamArray
 }
-console.log(splitTeamArray)
+
+// console.log(splitTeamArray)
 
 // for each array in split team array, we make a new team and append to the main container
-function createTeamLayout() {
-  for (let i = 0; i < splitTeamArray.length; i++) {
-    let card = document.createElement("div")
-    card.classList.add = "team-member-container flex column"
-    teamOutput.appendChild(card)
-  }
+// function createTeamLayout() {
+//   for (let i = 0; i < splitTeamArray.length; i++) {
+//     let card = document.createElement("div")
+//     card.classList.add = "team-member-container flex column border-shadow"
+//     for (let j = 0; j < splitTeamArray[j]; j++) {
+//       let newName = document.createElement("span")
+//       newName.innerText =
+//     }
+//     teamOutput.appendChild(card)
+//   }
+// }
+
+// let numberOfTeamMembers = 3
+
+const teamOutputSection = document.getElementById("output-section")
+
+function createTeamCard() {
+  let newCard = document.createElement("div")
+  newCard.classList.add = "team-member-container flex column border-shadow"
+  newCard.classList.add = "border-shadow"
+  newCard.innerHTML = "just checking"
+  let newDiv = document.createElement("div")
+  newDiv.classList.add = "team-container"
+  teamOutputSection.appendChild(newDiv)
+  newDiv.appendChild(newCard)
 }
 
-//number of teams
+function removeTeamCard() {
+  teamOutputSection.removeChild(teamOutputSection.lastChild)
+}
 
 addTeamButton.onclick = function () {
   let value = parseInt(numberOfTeamsElement.value)
   value = isNaN(value) ? 0 : value
   value++
   numberOfTeamsElement.value = value
+  // add new card
+  createTeamCard()
 }
 
 removeTeamButton.onclick = function () {
@@ -75,6 +99,7 @@ removeTeamButton.onclick = function () {
   } else {
     numberOfTeamsElement.value = value
   }
+  removeTeamCard()
 }
 
 //when button is clicked, the waiting list gets shuffled
