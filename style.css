@@ -59,9 +59,12 @@
   width: 40px;
 }
 #number-of-teams-display {
-  padding-inline: 10px;
+  flex-grow: 1;
   align-self: center;
-  margin-inline: 56px;
+  width: 50px;
+  border: none;
+  background-color: rgb(232, 245, 251);
+  align-content: flex-end;
 }
 
 .border-shadow {
@@ -105,4 +108,5 @@
   width: 150px;
   height: 200px;
   background-color: white;
+  padding: 5px;
 }

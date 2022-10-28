@@ -4,6 +4,9 @@ const allNamesContainer = document.getElementById("member-name-box")
 const resetButton = document.getElementById("reset-btn")
 const assignMemberButton = document.getElementById("assign-member-btn")
 const teamOutput = document.getElementById("output-section")
+const numberOfTeamsElement = document.getElementById("number-of-teams-display")
+const addTeamButton = document.getElementById("plus-one")
+const removeTeamButton = document.getElementById("minus-one")
 
 let waitingList = []
 
@@ -53,6 +56,27 @@ function createTeamLayout() {
     teamOutput.appendChild(card)
   }
 }
+
+//number of teams
+
+addTeamButton.onclick = function () {
+  let value = parseInt(numberOfTeamsElement.value)
+  value = isNaN(value) ? 0 : value
+  value++
+  numberOfTeamsElement.value = value
+}
+
+removeTeamButton.onclick = function () {
+  let value = parseInt(numberOfTeamsElement.value)
+  value = isNaN(value) ? 0 : value
+  if (value >= 1) {
+    value--
+    numberOfTeamsElement.value = value
+  } else {
+    numberOfTeamsElement.value = value
+  }
+}
+
 //when button is clicked, the waiting list gets shuffled
 assignMemberButton.onclick = function () {
   shuffle(waitingList)
