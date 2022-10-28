@@ -30,6 +30,7 @@ function resetNames() {
   while (allNamesContainer.firstChild) {
     allNamesContainer.removeChild(allNamesContainer.firstChild)
   }
+  newNameInput.value = ""
 }
 
 // shuffle the original array
