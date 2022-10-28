@@ -3,6 +3,7 @@ const newNameInput = document.getElementById("name-input-box")
 const allNamesContainer = document.getElementById("member-name-box")
 const resetButton = document.getElementById("reset-btn")
 const assignMemberButton = document.getElementById("assign-member-btn")
+const teamOutput = document.getElementById("output-section")
 
 let waitingList = []
 
@@ -34,19 +35,27 @@ function shuffle(array) {
 }
 
 //split the shuffled array into smaller arrays of 3
-function splitTeams(arr, teamSize) {
-  let splitTeamArray = []
-  for (let i = 0; i < arr.length; i += teamSize) {
-    const team = arr.slice(i, i + teamSize)
+let splitTeamArray = []
+let splitTeams = function (arr, teamSize) {
+  for (let i = 0; i < waitingList.length; i += 3) {
+    const team = waitingList.slice(i, i + 3)
     splitTeamArray.push(team)
   }
   return splitTeamArray
 }
+console.log(splitTeamArray)
 
+// for each array in split team array, we make a new team and append to the main container
+function createTeamLayout() {
+  for (let i = 0; i < splitTeamArray.length; i++) {
+    let card = document.createElement("div")
+    card.classList.add = "team-member-container flex column"
+    teamOutput.appendChild(card)
+  }
+}
 //when button is clicked, the waiting list gets shuffled
 assignMemberButton.onclick = function () {
   shuffle(waitingList)
-  splitTeams(waitingList, 3)
+  splitTeams()
+  createTeamLayout()
 }
-
-// let teamSize = 3

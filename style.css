@@ -5,10 +5,22 @@
 }
 
 #container {
-  border: 1px solid red;
   height: 100vh;
   width: 100vw;
-  background-color: lightgray;
+  background-color: rgb(232, 245, 251);
+  font-family: "Inter", sans-serif;
+}
+
+.green {
+  color: white;
+  background-color: lightseagreen;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn {
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
 .flex {
@@ -20,26 +32,71 @@
 }
 
 #input-section-container {
-  border: 1px solid blueviolet;
   width: 50%;
   margin-inline-start: 150px;
+  margin-inline-end: 15px;
+  align-content: flex-start;
+}
+#user-input {
+  gap: 20px;
+}
+#add-member {
+  justify-content: space-between;
+  gap: 20px;
+}
+#teams-header {
+  margin-inline-end: 170px;
+}
+#name-input-box {
+  border: none;
+  padding: 5px;
+}
+#add-teams {
+  align-content: space-between;
+}
+
+#add-teams button {
+  width: 40px;
+}
+#number-of-teams-display {
+  padding-inline: 10px;
+  align-self: center;
+  margin-inline: 56px;
+}
+
+.border-shadow {
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 2px rgb(168, 165, 165);
 }
 
 #member-name-box {
-  width: 300px;
+  width: 100%;
   min-height: 200px;
-  border: 1px solid green;
   background-color: white;
+  padding: 10px;
+  margin: 20px 0px;
 }
-
+#lower-btns {
+  gap: 10px;
+}
+#assign-member-btn {
+  flex-grow: 1;
+}
+#reset-btn {
+  color: white;
+  background-color: rgb(122, 50, 50);
+  border: none;
+  border-radius: 5px;
+}
 /* output section */
 
 #output-section-container {
-  border: 1px solid blueviolet;
-  width: 50%;
+  width: 48%;
+  margin-inline-start: 15px;
   margin-inline-end: 150px;
 }
 #output-section {
+  margin-top: 100px;
   flex-wrap: wrap;
   gap: 20px;
 }

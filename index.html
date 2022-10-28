@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./normalise.css" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap"
+      rel="stylesheet"
+    />
     <script src="./script.js" defer></script>
     <title>Team Generator</title>
   </head>
@@ -18,68 +24,83 @@
           <!-- add members and number of teams -->
           <div id="add-member" class="flex">
             <h4>Add Member</h4>
-            <h4>Teams</h4>
+            <h4 id="teams-header">Teams</h4>
           </div>
           <div id="user-input" class="flex">
             <!-- add team member name -->
             <div id="add-name">
               <input type="text" placeholder="Name" id="name-input-box" />
-              <button type="button" onclick="addNewName()" id="add-name-btn">Add</button>
+              <button
+                type="button"
+                onclick="addNewName()"
+                id="add-name-btn"
+                class="green btn"
+              >
+                Add
+              </button>
             </div>
             <!-- add number of teams -->
             <div id="add-teams" class="flex">
-              <button type="button" id="minus-one">-</button>
-              <span>0<span>
-              <button type="button" id="plus-one">+</button>
+              <button type="button" id="minus-one" class="green btn">-</button>
+              <div id="number-of-teams-display">0</div>
+              <button type="button" id="plus-one" class="green btn">+</button>
             </div>
           </div>
           <!-- box to display all the names -->
-          <div id="member-name-box">
-                        
-          </div>
+          <div id="member-name-box" class="border-shadow"></div>
           <!-- buttons beneath box that displays member names -->
           <div id="lower-btns" class="flex">
-            <button type="button" id="assign-member-btn">Assign Member</button>
-            <button type="button" onclick="resetNames()" id="reset-btn">Reset</button>
+            <button type="button" id="assign-member-btn" class="green btn">
+              Assign Member
+            </button>
+            <button
+              type="button"
+              onclick="resetNames()"
+              id="reset-btn"
+              class="btn"
+            >
+              Reset
+            </button>
           </div>
         </div>
       </div>
       <!-- team section -->
       <div id="output-section-container">
         <div id="output-section" class="flex">
-            <div class="team-container">
-                <div class="team-header flex">
-                <h3 class="team-header-team">Team</h3><h3 class="team-header-number">1</h3>
+          <div class="team-container">
+            <div class="team-header flex">
+              <h3 class="team-header-team">Team</h3>
+              <h3 class="team-header-number">1</h3>
             </div>
-            <div class="team-member-container flex column">
-               <span>Aneesah Khan</span>
-               <span>Aneesah Khan</span>
-               <span>Aneesah Khan</span>
+            <div class="team-member-container flex column border-shadow">
+              <span>Aneesah Khan</span>
+              <span>Aneesah Khan</span>
+              <span>Aneesah Khan</span>
             </div>
+          </div>
+
+          <div class="team-container">
+            <div class="team-header flex">
+              <h3 class="team-header-team">Team</h3>
+              <h3 class="team-header-number">1</h3>
             </div>
-      
-       
-     
-            <div class="team-container">
-                <div class="team-header flex">
-                <h3 class="team-header-team">Team</h3><h3 class="team-header-number">1</h3>
+            <div class="team-member-container flex column border-shadow">
+              <span>Aneesah Khan</span>
+              <span>Aneesah Khan</span>
+              <span>Aneesah Khan</span>
             </div>
-            <div class="team-member-container flex column">
-               <span>Aneesah Khan</span>
-               <span>Aneesah Khan</span>
-               <span>Aneesah Khan</span>
+          </div>
+          <div class="team-container">
+            <div class="team-header flex">
+              <h3 class="team-header-team">Team</h3>
+              <h3 class="team-header-number">1</h3>
             </div>
+            <div class="team-member-container flex column border-shadow">
+              <span>Aneesah Khan</span>
+              <span>Aneesah Khan</span>
+              <span>Aneesah Khan</span>
             </div>
-            <div class="team-container">
-                <div class="team-header flex">
-                <h3 class="team-header-team">Team</h3><h3 class="team-header-number">1</h3>
-            </div>
-            <div class="team-member-container flex column">
-               <span>Aneesah Khan</span>
-               <span>Aneesah Khan</span>
-               <span>Aneesah Khan</span>
-            </div>
-            </div>
+          </div>
         </div>
       </div>
       <!-- container closing div -->
