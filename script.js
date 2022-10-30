@@ -9,6 +9,33 @@ const addTeamButton = document.getElementById("plus-one")
 const removeTeamButton = document.getElementById("minus-one")
 
 let waitingList = []
+let numberOfTeams = 0
+
+// add team card and remove when + and - buttons are pressed
+//  assign number of teams to a variable so we can keep track
+
+addTeamButton.onclick = function () {
+  let value = parseInt(numberOfTeamsElement.value)
+  value = isNaN(value) ? 0 : value
+  value++
+  numberOfTeamsElement.value = value
+  // add new card
+  createTeamCard()
+  numberOfTeams++
+}
+
+removeTeamButton.onclick = function () {
+  let value = parseInt(numberOfTeamsElement.value)
+  value = isNaN(value) ? 0 : value
+  if (value >= 1) {
+    value--
+    numberOfTeamsElement.value = value
+  } else {
+    numberOfTeamsElement.value = value
+  }
+  removeTeamCard()
+  numberOfTeams--
+}
 
 function addNewName() {
   let newName = newNameInput.value
@@ -46,27 +73,14 @@ function shuffle(array) {
 //split the shuffled array into smaller arrays of 3
 let splitTeamArray = []
 let splitTeams = function (arr, teamSize) {
-  for (let i = 0; i < waitingList.length; i += 3) {
-    const team = waitingList.slice(i, i + 3)
+  for (let i = 0; i < waitingList.length; i += numberOfTeams) {
+    const team = waitingList.slice(i, i + numberOfTeams)
     splitTeamArray.push(team)
   }
   return splitTeamArray
 }
 
 // console.log(splitTeamArray)
-
-// for each array in split team array, we make a new team and append to the main container
-
-function createTeamLayout() {
-  for (let i = 0; i < splitTeamArray.length; i++) {
-    let card = document.createElement("div")
-    for (let j = 0; j < splitTeamArray[j].length; j++) {
-      let newName = document.createElement("span")
-      newName.innerText = splitTeamArray[j]
-    }
-    teamOutput.appendChild(card)
-  }
-}
 
 const teamOutputSection = document.getElementById("output-section")
 
@@ -90,38 +104,28 @@ function createTeamCard() {
   teamOutputSection.appendChild(newDiv)
 }
 
+function assignMembers() {
+  for (let i = 0; i < splitTeamArray.length; i++) {
+    for (let j = 0; j < splitTeamArray[j].length; j++) {
+      let person = 0
+      // let newName = document.createElement("span")
+      // newName.innerText = splitTeamArray[j]
+      // console.log(newName.innerText)
+      console.log(splitTeamArray[j][person])
+      person++
+    }
+  }
+}
+
 function removeTeamCard() {
   teamOutputSection.removeChild(teamOutputSection.lastChild)
 }
 
-let numberOfTeams = 0
-
-addTeamButton.onclick = function () {
-  let value = parseInt(numberOfTeamsElement.value)
-  value = isNaN(value) ? 0 : value
-  value++
-  numberOfTeamsElement.value = value
-  // add new card
-  createTeamCard()
-  numberOfTeams++
-}
-
-removeTeamButton.onclick = function () {
-  let value = parseInt(numberOfTeamsElement.value)
-  value = isNaN(value) ? 0 : value
-  if (value >= 1) {
-    value--
-    numberOfTeamsElement.value = value
-  } else {
-    numberOfTeamsElement.value = value
-  }
-  removeTeamCard()
-  numberOfTeams--
-}
+// for each array in split team array, we
 
 //when button is clicked, the waiting list gets shuffled
 assignMemberButton.onclick = function () {
   shuffle(waitingList)
   splitTeams()
-  createTeamLayout()
+  assignMembers()
 }
