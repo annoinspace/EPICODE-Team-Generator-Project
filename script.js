@@ -31,6 +31,11 @@ function resetNames() {
     allNamesContainer.removeChild(allNamesContainer.firstChild)
   }
   newNameInput.value = ""
+
+  while (teamOutputSection.firstChild) {
+    teamOutputSection.removeChild(teamOutputSection.lastChild)
+  }
+  numberOfTeamsElement.value = 0
 }
 
 // shuffle the original array
@@ -51,19 +56,17 @@ let splitTeams = function (arr, teamSize) {
 // console.log(splitTeamArray)
 
 // for each array in split team array, we make a new team and append to the main container
-// function createTeamLayout() {
-//   for (let i = 0; i < splitTeamArray.length; i++) {
-//     let card = document.createElement("div")
-//     card.classList.add = "team-member-container flex column border-shadow"
-//     for (let j = 0; j < splitTeamArray[j]; j++) {
-//       let newName = document.createElement("span")
-//       newName.innerText =
-//     }
-//     teamOutput.appendChild(card)
-//   }
-// }
 
-// let numberOfTeamMembers = 3
+function createTeamLayout() {
+  for (let i = 0; i < splitTeamArray.length; i++) {
+    let card = document.createElement("div")
+    for (let j = 0; j < splitTeamArray[j].length; j++) {
+      let newName = document.createElement("span")
+      newName.innerText = splitTeamArray[j]
+    }
+    teamOutput.appendChild(card)
+  }
+}
 
 const teamOutputSection = document.getElementById("output-section")
 
@@ -91,6 +94,8 @@ function removeTeamCard() {
   teamOutputSection.removeChild(teamOutputSection.lastChild)
 }
 
+let numberOfTeams = 0
+
 addTeamButton.onclick = function () {
   let value = parseInt(numberOfTeamsElement.value)
   value = isNaN(value) ? 0 : value
@@ -98,6 +103,7 @@ addTeamButton.onclick = function () {
   numberOfTeamsElement.value = value
   // add new card
   createTeamCard()
+  numberOfTeams++
 }
 
 removeTeamButton.onclick = function () {
@@ -110,6 +116,7 @@ removeTeamButton.onclick = function () {
     numberOfTeamsElement.value = value
   }
   removeTeamCard()
+  numberOfTeams--
 }
 
 //when button is clicked, the waiting list gets shuffled

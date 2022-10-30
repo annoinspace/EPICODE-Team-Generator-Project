@@ -69,9 +69,9 @@ button:hover {
   width: 40px;
 }
 #number-of-teams-display {
-  flex-grow: 1;
   align-self: center;
-  width: 50px;
+  justify-content: center;
+  width: 70px;
   border: none;
   background-color: rgb(232, 245, 251);
   align-content: flex-end;
