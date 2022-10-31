@@ -10,7 +10,6 @@ const removeTeamButton = document.getElementById("minus-one")
 
 let waitingList = []
 let numberOfTeams = 0
-
 // add team card and remove when + and - buttons are pressed
 //  assign number of teams to a variable so we can keep track
 
@@ -63,6 +62,8 @@ function resetNames() {
     teamOutputSection.removeChild(teamOutputSection.lastChild)
   }
   numberOfTeamsElement.value = 0
+  waitingList = []
+  numberOfTeams = 0
 }
 
 // shuffle the original array
@@ -70,22 +71,33 @@ function shuffle(array) {
   return array.sort(() => Math.random() - 0.5)
 }
 
-//split the shuffled array into smaller arrays of 3
-let splitTeamArray = []
-let splitTeams = function (arr, teamSize) {
-  for (let i = 0; i < waitingList.length; i += numberOfTeams) {
-    const team = waitingList.slice(i, i + numberOfTeams)
-    splitTeamArray.push(team)
-  }
-  return splitTeamArray
-}
+// //split the shuffled array into smaller arrays of 3
+// let splitTeamArray = []
+// let splitTeams = function (arr, teamSize) {
+//   for (let i = 0; i < waitingList.length; i += numberOfTeams) {
+//     const team = waitingList.slice(i, i + numberOfTeams)
+//     splitTeamArray.push(team)
+//   }
+//   return splitTeamArray
+// }
 
 // console.log(splitTeamArray)
 
+// function assignMembers() {
+//   for (let i = 0; i < splitTeamArray.length; i++) {
+//     for (let j = 0; j < splitTeamArray[j].length; j++) {
+//       console.log(splitTeamArray[i][j])
+//     }
+//   }
+// }
+
+let teamSize = waitingList / numberOfTeams
+
 const teamOutputSection = document.getElementById("output-section")
+let newCard = document.createElement("div")
 
 function createTeamCard() {
-  let newCard = document.createElement("div")
+  document.ad
   newCard.classList.add(
     "team-member-container",
     "flex",
@@ -93,7 +105,7 @@ function createTeamCard() {
     "border-shadow"
   )
   newCard.classList.add("border-shadow")
-  newCard.innerHTML = "just checking"
+  newCard.innerHTML = `${waitingList}`
   let newHeader = document.createElement("h3")
   newHeader.innerText = `Team ${numberOfTeams + 1}`
   newHeader.classList.add("team-header", "flex")
@@ -104,23 +116,22 @@ function createTeamCard() {
   teamOutputSection.appendChild(newDiv)
 }
 
-function assignMembers() {
-  for (let i = 0; i < splitTeamArray.length; i++) {
-    for (let j = 0; j < splitTeamArray[j].length; j++) {
-      console.log(splitTeamArray[i][j])
-    }
-  }
-}
-
 function removeTeamCard() {
   teamOutputSection.removeChild(teamOutputSection.lastChild)
 }
+
+// function assignMembers() {
+//   let nameArea = document
+//     .getElementById("output-section")
+//     .querySelector("team-member-container")
+//   nameArea.innerText = `${waitingList}`
+// }
 
 // for each array in split team array, we
 
 //when button is clicked, the waiting list gets shuffled
 assignMemberButton.onclick = function () {
   shuffle(waitingList)
-  splitTeams()
-  assignMembers()
+  // splitTeams()
+  // assignMembers()
 }

@@ -73,7 +73,7 @@ button:hover {
   justify-content: center;
   width: 70px;
   border: none;
-  background-color: rgb(232, 245, 251);
+  background-color: transparent;
   align-content: flex-end;
 }
 
