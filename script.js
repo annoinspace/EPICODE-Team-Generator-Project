@@ -95,7 +95,7 @@ function createTeamCard() {
   newCard.classList.add("border-shadow")
   newCard.innerHTML = "just checking"
   let newHeader = document.createElement("h3")
-  newHeader.innerText = "Team"
+  newHeader.innerText = `Team ${numberOfTeams + 1}`
   newHeader.classList.add("team-header", "flex")
   let newDiv = document.createElement("div")
   newDiv.classList.add("team-container")
