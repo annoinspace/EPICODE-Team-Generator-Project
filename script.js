@@ -107,12 +107,7 @@ function createTeamCard() {
 function assignMembers() {
   for (let i = 0; i < splitTeamArray.length; i++) {
     for (let j = 0; j < splitTeamArray[j].length; j++) {
-      let person = 0
-      // let newName = document.createElement("span")
-      // newName.innerText = splitTeamArray[j]
-      // console.log(newName.innerText)
-      console.log(splitTeamArray[j][person])
-      person++
+      console.log(splitTeamArray[i][j])
     }
   }
 }
