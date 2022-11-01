@@ -32,7 +32,7 @@
               <input type="text" placeholder="Name" id="name-input-box" />
               <button
                 type="button"
-                onclick="addNewName()"
+                onclick="addPerson()"
                 id="add-name-btn"
                 class="green btn"
               >
@@ -46,17 +46,19 @@
                 type="text"
                 id="number-of-teams-display"
                 class="flex"
-                value="0"
+                value="2"
               />
               <div id="number-of-teams-display"></div>
-              <button type="button" id="plus-one" class="green btn">+</button>
+              <button type="button" id="plus-one" class="green btn" onclick="addTeam()">+</button>
             </div>
           </div>
           <!-- box to display all the names -->
-          <div id="member-name-box" class="border-shadow"></div>
+          <div id="member-name-box" class="border-shadow">
+            <ul id="team-queue"></ul>
+          </div>
           <!-- buttons beneath box that displays member names -->
           <div id="lower-btns" class="flex">
-            <button type="button" id="assign-member-btn" class="green btn">
+            <button type="button" id="assign-member-btn" class="green btn" onclick="assignAll()">
               Assign Member
             </button>
             <button
@@ -72,7 +74,7 @@
       </div>
       <!-- team section -->
       <div id="output-section-container">
-        <div id="output-section" class="flex">
+        <div id="output-section-row" class="flex">
           </div>
       
         </div>
